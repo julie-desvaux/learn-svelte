@@ -1,32 +1,48 @@
 <script>
 	import Navbar from "./components/Navbar.svelte"
+	import Button from "./components/Button.svelte"
 	import Modal from "./components/Modal.svelte"
 	import Tabs from "./components/Tabs.svelte"
-	let toggle = false;
+	import storeData from "./store/store.js"
+
+	let toggleModal = false;
+	let toggleDarkMode
+
+	storeData.subscribe(value => {
+		toggleDarkMode = value
+	})
 
 	const toggleFunc = () => {
-		toggle=!toggle
+		toggleModal=!toggleModal
 	}
 </script>
 
 <Navbar />
-
-<h1>Title</h1>
-<div class="flex">
-	<button on:click={toggleFunc}>Modal</button>
+<div class={`container ${toggleDarkMode ? "go-dark" : 'go-light'}`}>
+	<Button />
+	<h1>Title</h1>
+	<div class="flex">
+		<button on:click={toggleFunc}>Modal</button>
+	</div>
+	
+	{#if toggleModal}
+		<Modal on:close={toggleFunc}/>
+	{/if}
+	
+	<div>
+		<Tabs />
+	</div>
 </div>
 
-{#if toggle}
-	<Modal on:close={toggleFunc}/>
-{/if}
-
-<div>
-	<Tabs />
-</div>
 
 <style>
+	.container {
+		width: 100%;
+		min-height: calc(100vh - 70px);
+		height: auto;
+	}
 	h1 {
-		margin: 20px 0;
+		padding: 25px 80px;
 		text-align: center;
 	}
 	.flex {

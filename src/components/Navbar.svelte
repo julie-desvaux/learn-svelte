@@ -23,12 +23,12 @@
     </div>
 
     <ul class={toggleMenu ? "nav-list visible" : "nav-list"}>
-        <li class="nav-item"><a href="#">Lorem</a></li>
-        <li class="nav-item"><a href="#">Lorem</a></li>
-        <li class="nav-item"><a href="#">Lorem</a></li>
-        <li class="nav-item"><a href="#">Lorem</a></li>
-        <li class="nav-item"><a href="#">Lorem</a></li>
-        <li class="nav-item"><a href="#">Lorem</a></li>
+        <li on:click={toggleMenuFunc} class="nav-item"><a href="#">Lorem</a></li>
+        <li on:click={toggleMenuFunc} class="nav-item"><a href="#">Lorem</a></li>
+        <li on:click={toggleMenuFunc} class="nav-item"><a href="#">Lorem</a></li>
+        <li on:click={toggleMenuFunc} class="nav-item"><a href="#">Lorem</a></li>
+        <li on:click={toggleMenuFunc} class="nav-item"><a href="#">Lorem</a></li>
+        <li on:click={toggleMenuFunc} class="nav-item"><a href="#">Lorem</a></li>
     </ul>
 </nav>
 
@@ -38,6 +38,7 @@
         width: 100%;
         background:#333;
         position: relative;
+        border-bottom: 1px solid #f1f1f1;
     }
     .logo {
         color: #fff;
@@ -48,6 +49,7 @@
         display: none;
     }
     .nav-list {
+        z-index: 10;
         height: 100%;
         list-style-type: none;
         display: flex;

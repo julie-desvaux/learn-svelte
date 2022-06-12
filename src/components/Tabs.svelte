@@ -1,4 +1,12 @@
 <script>
+    import storeData from "../store/store.js"
+
+    let toggleDarkMode;
+
+    storeData.subscribe(value => {
+        toggleDarkMode = value
+    })
+
     let toggleTab = 1
 
     const funcToggle = (index) => {
@@ -6,10 +14,10 @@
     }
 </script>
 
-<div class="box-tabs">
+<div class={`box-tabs ${toggleDarkMode && "box-tabs-dark"}`}>
     <div class="selectors">
-        <div on:click={() => funcToggle(1)} class="selector s1">Formule $</div>
-        <div on:click={() => funcToggle(2)}  class="selector s2">Formule $$$</div>
+        <div on:click={() => funcToggle(1)} class={`selector ${toggleDarkMode ? "s1-dark" : "s1"}`}>Formule $</div>
+        <div on:click={() => funcToggle(2)}  class="selector">Formule $$$</div>
     </div>
 
     {#if toggleTab === 1}
@@ -34,6 +42,9 @@
         max-width: 500px;
         margin: 100px auto
     }
+    .box-tabs-dark {
+        border: 1px solid #f1f1f1;
+    }
     .selectors {
         display: flex;
     }
@@ -53,8 +64,8 @@
     .s1 {
         border-right: 1px solid #333;
     }
-    .s1 {
-        border-left: 1px solid #333;
+    .s1-dark {
+        border-right: 1px solid #f1f1f1;
     }
     .contenu {
         min-height: 230px;
