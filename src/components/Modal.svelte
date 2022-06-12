@@ -11,7 +11,7 @@
 <div class="modal">
     <h2>Lorem ipsum dolor sit amet.</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi earum quaerat, maiores at aliquam tempora non totam id, deleniti facere mollitia illo itaque deserunt veritatis.</p>
-    <button on:click={closeModal} class="btn-danger">x</button>
+    <button on:click={closeModal} class="btn-danger">X</button>
 </div>
 
 <style>
@@ -37,7 +37,11 @@
         position: absolute;
         top:5px;
         right: 5px;
+        color: #fff;
         background: crimson;
         border: 1px solid lightgray;
+        padding : 8px 15px;
+        border : 1px solid #333;
+        border-radius: 5px;
     }
 </style>
