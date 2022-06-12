@@ -38,8 +38,9 @@
 <style>
 	.container {
 		width: 100%;
-		min-height: calc(100vh - 70px);
 		height: auto;
+		min-height: calc(100vh - 70px);
+		transition: color 0.2s ease-in, background-color 0.2s ease-in;
 	}
 	h1 {
 		padding: 25px 80px;

@@ -24,5 +24,6 @@
         top: 85px;
         right: 15px;
         cursor: pointer;
+        transition: color 0.2s ease-in, background-color 0.2s ease-in;
     }
 </style>
